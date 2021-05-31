@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Baton Калькулятор</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<form class="calc_form" name="tattoo" action="#">
+	<div class="calc_tattoo" data-index="0">
+		<fieldset class="calc_fieldset">
+			<legend>Основное</legend>
+			<fieldset class="calc_fieldset">
+				<legend>Время</legend>
+				<label><input type="number" class="calc_input" name="time-h" min="0" max="100" pattern="[0-9]*" placeholder="0">ч</label>
+				<label><input type="number" class="calc_input" name="time-m" min="0" max="100" pattern="[0-9]*" placeholder="0">мин</label>
+			</fieldset>
+			<fieldset class="calc_fieldset">
+				<legend>Размер (ШхВ)</legend>
+				<label><input type="number" class="calc_input" name="size-w" min="1" max="100" pattern="[0-9]*" placeholder="0" required>см</label>
+				<label><input type="number" class="calc_input" name="size-h" min="1" max="100" pattern="[0-9]*" placeholder="0" required>см</label>
+			</fieldset>
+			<fieldset class="calc_fieldset">
+				<legend>Место</legend>
+				<label><input type="text" class="calc_input" name="place" placeholder="Предплечье" required></label>
+				<label><input type="radio" class="calc_radio" name="place-diff" value="easy" checked>Простое</label>
+				<label><input type="radio" class="calc_radio" name="place-diff" value="medium">Стандартное</label>
+				<label><input type="radio" class="calc_radio" name="place-diff" value="hard">Сложное</label>
+			</fieldset>
+			<fieldset class="calc_fieldset">
+				<legend>Эскиз</legend>
+				<label><input type="file" class="calc_input" name="sketch" accept="image/*" required></label>
+				<label><input type="text" class="calc_input" name="sketch-style" placeholder="Блэкворк" required></label>
+				<fieldset class="calc_fieldset">
+					<legend>Сложность</legend>
+					<label><input type="radio" class="calc_radio" name="sketch-diff" value="1" checked>1</label>
+					<label><input type="radio" class="calc_radio" name="sketch-diff" value="2">2</label>
+					<label><input type="radio" class="calc_radio" name="sketch-diff" value="3">3</label>
+					<label><input type="radio" class="calc_radio" name="sketch-diff" value="4">4</label>
+					<label><input type="radio" class="calc_radio" name="sketch-diff" value="5">5</label>
+					<label><input type="radio" class="calc_radio" name="sketch-diff" value="6">6</label>
+					<label><input type="radio" class="calc_radio" name="sketch-diff" value="7">7</label>
+					<label><input type="radio" class="calc_radio" name="sketch-diff" value="8">8</label>
+					<label><input type="radio" class="calc_radio" name="sketch-diff" value="9">9</label>
+					<label><input type="radio" class="calc_radio" name="sketch-diff" value="10">10</label>
+				</fieldset>
+				<fieldset class="calc_fieldset">
+					<legend>Цвет</legend>
+					<fieldset class="calc_fieldset">
+						<legend>Основной</legend>
+						<label><input type="radio" class="calc_input" name="color-m" value="black" checked>Чёрный</label>
+						<label><input type="radio" class="calc_input" name="color-m" value="color">Цветной</label>
+					</fieldset>
+					<fieldset class="calc_fieldset">
+						<legend>Дополнительные цвета</legend>
+						<span class="calc_counter decrease" name="color-o" onclick="decreaseValue(this)">-</span>
+						<input type="number" class="calc_input" name="color-o" min="0" max="10" value="0" readonly>
+						<span class="calc_counter increase" name="color-o" onclick="increaseValue(this)">+</span>
+					</fieldset>
+				</fieldset>
+				<fieldset class="calc_fieldset">
+					<legend>Покрас</legend>
+					<label><input type="radio" class="calc_radio" name="fill" value="none" checked>Без покраса</label>
+					<label><input type="radio" class="calc_radio" name="fill" value="low">Минимум</label>
+					<label><input type="radio" class="calc_radio" name="fill" value="medium">Стандарт</label>
+					<label><input type="radio" class="calc_radio" name="fill" value="full">Полный</label>
+				</fieldset>
+				<fieldset class="calc_fieldset">
+					<legend>Дополнительные расходники</legend>
+					<fieldset class="calc_fieldset">
+						<legend>Иглы</legend>
+						<span class="calc_counter decrease" name="color-o" onclick="decreaseValue(this)">-</span>
+						<input type="number" class="calc_input" name="color-o" min="0" max="10" value="0" readonly>
+						<span class="calc_counter increase" name="color-o" onclick="increaseValue(this)">+</span>
+					</fieldset>
+				</fieldset>
+			</fieldset>
+		</fieldset>
+	 	<fieldset class="calc_fieldset">
+			<legend>Основное</legend>
+		</fieldset>
+		<fieldset>
+			<legend>Итого</legend>
+			<label>Стоимость работы: <input type="text" class="calc_result" name="sum" value="0" readonly> ₽</label>
+		</fieldset>
+	</div>
+</form>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
