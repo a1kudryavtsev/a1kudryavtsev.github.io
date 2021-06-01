@@ -1,7 +1,212 @@
-fieldset{
-  margin: 10px;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+
+/* Отключаем стандартные стили */
+
+div, span, fieldset, input, input:hover, input:focus{
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+	padding: 0;
+	margin: 0;
 }
 
-form{
-  width: 360px;
+/* Стили страницы */
+
+:root{
+	--primary: #c7bdf2;
+	--onprimary: #d4caff;
+	--black: #000;
+	--white: white;
+	--placeholder: #9d94c5;
+}
+
+body{
+	background-color: var(--primary);
+	color: var(--black);
+	font-family: 'IBM Plex Sans', sans-serif;
+	font-size: 16px;
+	padding: 20px;
+}
+
+/* Форма */
+
+.calc_form{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: var(--onprimary);
+	border-radius: 4px;
+
+}
+
+.calc_form > fieldset {
+	border-top: 2px solid var(--black);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	gap: 10px;
+	padding: 10px 0px;
+}
+
+.calc_form > fieldset > fieldset{
+	flex: 1 1 40%;
+	padding: 10px;
+	border: 1px solid var(--black);
+	border-radius: 4px;
+}
+
+.calc_form > fieldset > fieldset > fieldset{ 
+	padding: 10px;
+	border-top: 1px solid var(--black);
+}
+
+/* Заголовки */
+
+.calc_form legend{
+	font-weight: 700;
+	display: block;
+	padding: 0px 5px 3px;
+	margin-left: -5px;
+}
+
+.calc_form > fieldset > legend{
+	font-size: 1.2rem;
+}
+
+.calc_form > fieldset > fieldset > fieldset > legend{
+	font-weight: 400;
+}
+
+/* Подписи полей */
+.calc_form label{
+	width: 100%;
+}
+.calc_form label > span{
+	display: inline-block;
+	text-align: center;
+}
+
+/* Поля */
+
+.calc_form .calc_input{
+	background-color: transparent;
+	border-bottom: 2px dotted var(--black);
+	padding: 0px 0px 5px 0px;
+	width: 100%;
+}
+
+.calc_form .calc_input::placeholder{
+	color: var(--placeholder);
+}
+
+/* Переключатели */
+
+.calc_form .calc_radio{
+	display: none;
+}
+
+.calc_form .calc_radio + span.calc_label{
+	cursor: pointer;
+	padding: 5px 10px;
+	border: 1px solid var(--black);
+}
+
+.calc_form .calc_radio:checked + span.calc_label{
+	background-color: var(--black);
+	color: var(--white);
+}
+
+/* Счётчик */
+
+.calc_form span.calc_counter{
+	display: inline-block;
+	box-sizing: border-box;
+	cursor: pointer;
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+	background-color: var(--white);
+	font-size: 1rem;
+	text-align: center;
+	line-height: 2rem;
+}
+
+.calc_form span.calc_counter:hover{
+	box-shadow: 0px 0px 0px 1px var(--black) inset;
+}
+
+.calc_form span.calc_counter:active{
+	background-color: var(--black);
+	color: var(--white);
+}
+
+.calc_form input.calc_counter{
+	-moz-appearance: textfield;
+	-webkit-appearance: textfield;
+	appearance: textfield;
+	display: inline-block;
+	background-color: transparent;
+	text-align: center;
+}
+
+.calc_form input.calc_counter::-webkit-outer-spin-button,
+.calc_form input.calc_counter::-webkit-inner-spin-button{
+	display: none;
+}
+
+/* Блок времени и размера */
+
+.calc_form .calc_time, .calc_form .calc_size{
+	display: flex;
+	gap: 10px;
+}
+
+.calc_form .calc_time > label, .calc_form .calc_size > label{
+	display: flex;
+}
+
+.calc_form .calc_time .calc_input, .calc_form .calc_size .calc_input{
+	min-width: 40px;
+}
+
+/* Блок места */
+
+.calc_form .calc_place{
+	flex: 1 1 100%;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.calc_form .calc_place > .calc_place--name{
+	flex: 1 1 150px;
+}
+
+.calc_form .calc_place > .calc_place--diff{
+	flex: 4 1 auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.calc_form .calc_place > .calc_place--diff > label{
+	flex: 1 1 auto;
+	width: auto;
+}
+
+@media screen and (max-width: 450px){
+	.calc_form .calc_place > .calc_place--diff > label{
+		width: 100%;
+	}
+}
+
+.calc_form .calc_place > .calc_place--diff > label > span{
+	width: 100%;
+}
+
+/* Кнопка выбора файла */
+.calc_form .calc_file{
+	display: block;
+	margin-bottom: 10px;
 }

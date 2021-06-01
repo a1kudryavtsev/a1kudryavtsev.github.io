@@ -21,6 +21,8 @@ let tattoo = {
 	'color-m': "",
 	'color-o': "",
 	'fill': "",
+	'material-spine': "",
+	'material-dye': "",
 	'sale': "",
 	'promo': "",
 	'sum': ""
@@ -28,7 +30,6 @@ let tattoo = {
 
 function editTattoo() {
   if (event.target.tagName = "input") { // Если произошло изменение в поле
-    console.log("В форме " + this.name + " изменилось поле " + event.target.name);
 		tattoo.[event.target.name] = event.target.value;
 		calcTattoo(this);
   }
@@ -67,6 +68,10 @@ function calcTattoo(form){
 									(tattoo.['fill'] == "medium") ? cost_time = cost_time + price_time * 0.10 : // стандарт
 									(tattoo.['fill'] == "full") ? cost_time = cost_time + price_time * 0.15 : ""; // полный
 	
+	// Дополнительные раходники
+	work_material = (tattoo.['material-spine'] > 0) ? work_material + +tattoo.['material-spine'] * 35 : work_material; // доп. иглы
+	work_material = (tattoo.['material-dye'] > 0) ? work_material + +tattoo.['material-spine'] * 20 : work_material; // доп. краска
+
 	// Скидка за объём работы
 	cost_time = (work_time <= 30) ? cost_time : // Тариф S
 							(work_time > 30 && work_time <= 60) ? cost_time * (1 - 0.15): // Тариф M
@@ -76,7 +81,14 @@ function calcTattoo(form){
 	// Итоговая формула
 	// Стартовый прайс + Стоимость времние * Время рабрты + Расходники
 	let sum = start_price + cost_time * work_time + work_material;
-	sum = Math.round(sum / 50) * 50; // Округляем с шагом в 50
+	
+	// Персональная цена
+	let sale = (tattoo.['sale'] != 0) ? sum = sum + sum / 100 * +tattoo.['sale'] : "";
+
+	// Акции
+	let promo = (tattoo.['promo'] == "mini-tattoo-500") ? sum = 500 : "";
+
+	sum = Math.ceil(sum / 50) * 50; // Округляем с шагом в 50
 	form.querySelector("input[name=sum]").value = sum;
 }
 
