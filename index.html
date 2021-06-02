@@ -2,8 +2,26 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - Baton Калькулятор</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <title>CodePen - Калькулятор</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css'><link rel="stylesheet" href="./style.css">
 
 </head>
@@ -27,22 +45,28 @@
 				<legend>Место</legend>
 				<fieldset class="calc_place--name">
 					<legend>Название</legend>
-				<label><input type="text" class="calc_input" name="place" placeholder="Предплечье" required></label>
-					</fieldset>
+					<label><input type="text" class="calc_input" name="place" placeholder="Предплечье" required></label>
+				</fieldset>
 				<fieldset class="calc_place--diff">
-				<legend>Сложность</legend>
-				<label><input type="radio" class="calc_radio" name="place-diff" value="easy" checked><span class="calc_label">Простое</span></label>
-				<label><input type="radio" class="calc_radio" name="place-diff" value="medium"><span class="calc_label">Стандартное</span></label>
-				<label><input type="radio" class="calc_radio" name="place-diff" value="hard"><span class="calc_label">Сложное</span></label>
+					<legend>Сложность</legend>
+					<label><input type="radio" class="calc_radio" name="place-diff" value="easy" checked><span class="calc_label">Простое</span></label>
+					<label><input type="radio" class="calc_radio" name="place-diff" value="medium"><span class="calc_label">Стандартное</span></label>
+					<label><input type="radio" class="calc_radio" name="place-diff" value="hard"><span class="calc_label">Сложное</span></label>
 				</fieldset>
 			</fieldset>
 			<fieldset class="calc_sketch">
 				<legend>Эскиз</legend>
-				<label><input type="file" class="calc_file" name="sketch" accept="image/*" required></label>
-				<fieldset class="calc_style">
-				<legend>Стиль</legend>
-				<label><input type="text" class="calc_input" name="sketch-style" placeholder="Блэкворк" required></label>
-					</fieldset>
+				<fieldset class="calc_sketch--file">
+					<legend>Фото</legend>
+					<label onchange="fileUpload(this)">
+						<input type="file" class="calc_file" name="sketch" accept="image/*" required>
+						<span class="calc_file--button">Прикрепить эскиз <i class="las la-upload"></i></span>
+					</label>
+				</fieldset>
+				<fieldset class="calc_sketch--style">
+					<legend>Стиль</legend>
+					<label><input type="text" class="calc_input" name="sketch-style" placeholder="Блэкворк" required></label>
+				</fieldset>
 				<fieldset class="calc_sketch--diff">
 					<legend>Сложность</legend>
 					<label><input type="radio" class="calc_radio" name="sketch-diff" value="1" checked><span class="calc_label">1</span></label>
@@ -59,13 +83,13 @@
 				<fieldset class="calc_sketch--color">
 					<legend>Цвет</legend>
 					<fieldset class="calc_sketch--color-m">
-						<legend>Основной</legend>
+						<span class="calc_label">Основной</span>
 						<label><input type="radio" class="calc_radio" name="color-m" value="black" checked><span class="calc_label">Чёрный</span></label>
 						<label><input type="radio" class="calc_radio" name="color-m" value="color"><span class="calc_label">Цветной</span></label>
 					</fieldset>
 					<fieldset class="calc_sketch--color-o">
+						<span class="calc_label">Доп. цвета</span>
 						<label>
-							<legend>Дополнительные цвета</legend>
 							<span class="calc_counter decrease" name="color-o" onclick="decreaseValue(this)"><i class="las la-minus"></i></span>
 							<input type="number" class="calc_counter" name="color-o" min="0" max="10" value="0" readonly>
 							<span class="calc_counter increase" name="color-o" onclick="increaseValue(this)"><i class="las la-plus"></i></span>
@@ -80,18 +104,18 @@
 					<label><input type="radio" class="calc_radio" name="fill" value="full"><span class="calc_label">Полный</span></label>
 				</fieldset>
 				<fieldset class="calc_sketch--material">
-					<legend>Дополнительные расходники</legend>
+					<legend>Доп. расходники</legend>
 					<label>
-						<span class="calc_label">Иглы</span>
 						<span class="calc_counter decrease" name="material-spine" onclick="decreaseValue(this)"><i class="las la-minus"></i></span>
 						<input type="number" class="calc_counter" name="material-spine" min="0" max="10" value="0" readonly>
 						<span class="calc_counter increase" name="material-spine" onclick="increaseValue(this)"><i class="las la-plus"></i></span>
+						<span class="calc_label">Иглы</span>
 					</label>
 					<label>
-						<span class="calc_label">Капсы краски</span>
 						<span class="calc_counter decrease" name="material-dye" onclick="decreaseValue(this)"><i class="las la-minus"></i></span>
 						<input type="number" class="calc_counter" name="material-dye" min="0" max="10" value="0" readonly>
 						<span class="calc_counter increase" name="material-dye" onclick="increaseValue(this)"><i class="las la-plus"></i></span>
+						<span class="calc_label">Капсы краски</span>
 					</label>
 				</fieldset>
 			</fieldset>
@@ -114,13 +138,13 @@
 			</fieldset>
 			<fieldset class="calc_promo">
 				<legend>Акции</legend>
-				<label><input type="radio" class="calc_radio" name="promo" value="none"><span class="calc_label">Без акций</span></label>
+				<label><input type="radio" class="calc_radio" name="promo" value="none" checked><span class="calc_label">Без акций</span></label>
 				<label><input type="radio" class="calc_radio" name="promo" value="mini-tattoo-500"><span class="calc_label">Мини-тату за 500 ₽ в первый раз</span></label>
 			</fieldset>
 		</fieldset>
 		<fieldset class="calc_result">
 			<legend>Итого</legend>
-			<label>Стоимость работы: <input type="text" class="calc_result" name="sum" value="0" readonly><span class="calc_label">₽</span></label>
+			<label>Стоимость работы<span class="underline-dotted"></span><span class="calc_result" name="sum">0</span><span class="calc_label">₽</span></label>
 		</fieldset>
 	</form>
 </section>

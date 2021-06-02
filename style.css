@@ -37,7 +37,6 @@ body{
 	padding: 20px;
 	background-color: var(--onprimary);
 	border-radius: 4px;
-
 }
 
 .calc_form > fieldset {
@@ -45,19 +44,18 @@ body{
 	display: flex;
 	flex-wrap: wrap;
 	align-items: flex-start;
-	gap: 10px;
+	gap: 15px;
 	padding: 10px 0px;
 }
 
 .calc_form > fieldset > fieldset{
 	flex: 1 1 40%;
-	padding: 10px;
+	padding: 10px 15px 15px 15px;
 	border: 1px solid var(--black);
 	border-radius: 4px;
 }
 
 .calc_form > fieldset > fieldset > fieldset{ 
-	padding: 10px;
 	border-top: 1px solid var(--black);
 }
 
@@ -76,12 +74,14 @@ body{
 
 .calc_form > fieldset > fieldset > fieldset > legend{
 	font-weight: 400;
+	margin-bottom: 10px;
 }
 
 /* Подписи полей */
 .calc_form label{
 	width: 100%;
 }
+
 .calc_form label > span{
 	display: inline-block;
 	text-align: center;
@@ -159,7 +159,7 @@ body{
 
 .calc_form .calc_time, .calc_form .calc_size{
 	display: flex;
-	gap: 10px;
+	gap: 15px;
 }
 
 .calc_form .calc_time > label, .calc_form .calc_size > label{
@@ -176,7 +176,7 @@ body{
 	flex: 1 1 100%;
 	display: flex;
 	flex-wrap: wrap;
-	gap: 10px;
+	gap: 15px;
 }
 
 .calc_form .calc_place > .calc_place--name{
@@ -204,8 +204,138 @@ body{
 	width: 100%;
 }
 
+/* Блок эскиза */
+.calc_form .calc_sketch{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 15px;
+}
+
+.calc_form .calc_sketch > fieldset{
+	flex: 1 1 150px;
+}
+
+.calc_form .calc_sketch > .calc_sketch--diff,
+.calc_form .calc_sketch > .calc_sketch--color,
+.calc_form .calc_sketch > .calc_sketch--fill,
+.calc_form .calc_sketch > .calc_sketch--material{
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
+}
+
+.calc_form .calc_sketch > .calc_sketch--diff{
+	flex: 1 1 100%;
+}
+
+.calc_form .calc_sketch > .calc_sketch--diff > label{
+	flex: 1 1 40px;
+}
+
+.calc_form .calc_sketch label > span.calc_label{
+	width: 100%;
+}
+
+.calc_form .calc_sketch > .calc_sketch--color{
+	flex: 1 1 100%;
+	gap: 15px;
+}
+
+.calc_form .calc_sketch > .calc_sketch--color > .calc_sketch--color-m > span,
+.calc_form .calc_sketch > .calc_sketch--color > .calc_sketch--color-o > span{
+	margin-right: 10px;
+	flex-shrink: 0;
+}
+
+.calc_form .calc_sketch > .calc_sketch--color > .calc_sketch--color-m,
+.calc_form .calc_sketch > .calc_sketch--color > .calc_sketch--color-o{
+	display: flex;
+	align-items: center;
+	width: 100%;
+	min-width: 250px;
+	flex: 1 1 40%;
+}
+
+.calc_form .calc_sketch > .calc_sketch--material{
+	gap: 10px;
+	min-width: 250px;
+}
+
+.calc_form .calc_sketch > .calc_sketch--material > label{
+	display: flex;
+	align-items: center;
+}
+
+.calc_form .calc_sketch > .calc_sketch--material > label > span{
+	flex: 0 0 auto;
+}
+
+.calc_form .calc_sketch > .calc_sketch--material > label > .calc_label{
+	margin-left: 10px;
+	width: auto;	
+}
+
 /* Кнопка выбора файла */
+
 .calc_form .calc_file{
+	display: none;
+	margin-bottom: 15px;
+}
+
+.calc_form .calc_file + .calc_file--button{
 	display: block;
-	margin-bottom: 10px;
+	text-align: center;
+	border: 1px solid var(--black);
+	padding: 0.9rem 1rem 1rem 1rem;
+	cursor: pointer;
+	min-width: 200px;
+}
+
+.calc_form .calc_file + .calc_file--button:hover{
+	background-color: var(--black);
+	color: var(--white);
+}
+
+/* Блок акций и скидок */
+
+.calc_form .calc_sale,
+.calc_form .calc_promo{
+	display: flex;
+	flex-wrap: wrap;
+	flex: 1 1 100%;
+}
+
+.calc_form .calc_sale{
+	
+}
+
+.calc_form .calc_sale > label{
+	flex: 1 1 50px;
+}
+
+.calc_form .calc_promo > label{
+	width: auto;
+	flex: 1 1 auto;
+}
+
+.calc_form .calc_sale > label > span,
+.calc_form .calc_promo > label > span{
+	width: 100%;
+}
+
+/* Итоговая цена */
+.calc_form .calc_result > label{
+	display: flex;
+}
+
+.calc_form .calc_result .underline-dotted{
+	flex-grow: 1;
+	border-bottom: 1px dotted var(--black);
+	margin: 0px 5px;
+}
+
+.calc_form .calc_result > label > span.calc_result{
+	text-align: right;
+	margin-right: 5px;
+	background-color: transparent;
 }
