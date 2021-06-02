@@ -6,9 +6,9 @@ div, span, fieldset, input, input:hover, input:focus{
 	box-sizing: border-box;
 	outline: none;
 	border: none;
+	border-radius: 0px;
 	padding: 0;
 	margin: 0;
-	border-radius: 0px;
 }
 
 /* Стили страницы */
@@ -109,8 +109,8 @@ body{
 
 .calc_form .calc_radio + span.calc_label{
 	cursor: pointer;
-	padding: 5px 10px;
-	border: 1px solid var(--black);
+	padding: 10px 15px;
+	background-color: var(--primary)
 }
 
 .calc_form .calc_radio:checked + span.calc_label{
@@ -124,13 +124,13 @@ body{
 	display: inline-block;
 	box-sizing: border-box;
 	cursor: pointer;
-	height: 2rem;
-	width: 2rem;
+	height: 2.5rem;
+	width: 2.5rem;
 	border-radius: 50%;
 	background-color: var(--white);
 	font-size: 1rem;
 	text-align: center;
-	line-height: 2rem;
+	line-height: 2.5rem;
 }
 
 .calc_form span.calc_counter:hover{
@@ -257,6 +257,11 @@ body{
 	flex: 1 1 40%;
 }
 
+.calc_form .calc_sketch > .calc_sketch--fill > label{
+	flex: 1 0 49%;
+	min-width: 150px;
+}
+
 .calc_form .calc_sketch > .calc_sketch--material{
 	gap: 10px;
 	min-width: 250px;
@@ -306,12 +311,18 @@ body{
 	flex: 1 1 100%;
 }
 
-.calc_form .calc_sale{
-	
+.calc_form .calc_sale > label{
+	flex: 1 1 19%;
 }
 
-.calc_form .calc_sale > label{
-	flex: 1 1 50px;
+@media screen and (max-width: 460px){
+	.calc_form .calc_sale > label{
+		flex: 1 1 50%;
+	}
+}
+
+.calc_form .calc_sale > label:first-of-type{
+	flex: 1 1 100%;
 }
 
 .calc_form .calc_promo > label{
