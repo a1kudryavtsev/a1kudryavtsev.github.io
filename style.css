@@ -109,7 +109,7 @@ body{
 
 .calc_form .calc_radio + span.calc_label{
 	cursor: pointer;
-	padding: 10px 15px;
+	padding: 15px 15px;
 	background-color: var(--primary)
 }
 
