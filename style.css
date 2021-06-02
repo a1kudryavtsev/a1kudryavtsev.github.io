@@ -230,7 +230,7 @@ body{
 }
 
 .calc_form .calc_sketch > .calc_sketch--diff > label{
-	flex: 1 1 40px;
+	flex: 1 1 50px;
 }
 
 .calc_form .calc_sketch label > span.calc_label{
