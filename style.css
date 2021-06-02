@@ -8,6 +8,7 @@ div, span, fieldset, input, input:hover, input:focus{
 	border: none;
 	padding: 0;
 	margin: 0;
+	border-radius: 0px;
 }
 
 /* Стили страницы */
